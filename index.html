@@ -278,6 +278,7 @@ footer{background:#07070A;padding:70px 0 34px;border-top:1px solid var(--linha)}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
@@ -707,6 +708,8 @@ menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.class
 
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+setTimeout(()=>{ if(!document.querySelector('.rv.in')) document.querySelectorAll('.rv').forEach(el=>el.classList.add('in')); },3000);
+document.addEventListener('visibilitychange',()=>{ if(!document.hidden) setTimeout(()=>{ if(!document.querySelector('.rv.in')) document.querySelectorAll('.rv').forEach(el=>el.classList.add('in')); },1200); });
 
 // vídeos carregam só no clique
 document.querySelectorAll('.video').forEach(v=>{

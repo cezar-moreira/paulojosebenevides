@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prévia · Paulo José Benevides</title>
+<meta name="description" content="Site oficial de Paulo José Benevides. Cantor brasileiro de jazz, big band, standards e música erudita. Mais de 5.000 apresentações em nove países. Shows, repertório e contratação.">
+<meta name="author" content="Paulo José Benevides">
+<meta name="theme-color" content="#0B0B0D">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Paulo José Benevides">
+<meta property="og:title" content="Paulo José Benevides — Cantor">
+<meta property="og:description" content="Jazz, big band, standards e música erudita. Mais de 5.000 apresentações em nove países.">
+<meta property="og:url" content="https://paulojosebenevides.com/">
+<meta property="og:image" content="https://i.ytimg.com/vi/z_TYMwrjrWs/maxresdefault.jpg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="canonical" href="https://paulojosebenevides.com/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230B0B0D'/><text x='50' y='68' font-size='52' font-family='Georgia,serif' fill='%23C6A664' text-anchor='middle'>P</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://lh3.googleusercontent.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  "name": "Paulo José Benevides",
+  "url": "https://paulojosebenevides.com/",
+  "genre": ["Jazz", "Big Band", "Vocal Standards", "Classical Crossover"],
+  "sameAs": [
+    "https://www.instagram.com/paulojosebenevidesoficial/",
+    "https://www.facebook.com/paulobenevidesoficial/",
+    "https://www.youtube.com/@PauloBenevidesOficial"
+  ]
+}
+</script>
+
+<style>
+/* ============================================================
+   PAULO JOSÉ BENEVIDES — SITE OFICIAL
+   Preto cinematográfico + dourado champagne
+   ============================================================ */
+
+:root{
+  --preto:#0B0B0D; --preto-2:#111114; --preto-3:#17171B;
+  --ouro:#C6A664; --ouro-claro:#E3CB96;
+  --branco:#F4F1EA; --cinza:#9A968E;
+  --linha:rgba(198,166,100,.22);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+  --max:1220px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--preto);color:var(--branco);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--ouro);color:var(--preto)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+
+h1,h2,h3,.serif{font-family:var(--serif);font-weight:400;letter-spacing:.01em}
+.eyebrow{font-family:var(--sans);font-size:.68rem;font-weight:500;letter-spacing:.34em;text-transform:uppercase;color:var(--ouro);display:block;margin-bottom:22px}
+.sec-title{font-size:clamp(2.1rem,5.5vw,3.6rem);line-height:1.1;margin-bottom:26px}
+.lead{font-size:1.06rem;color:var(--cinza);max-width:62ch}
+
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 34px;border:1px solid var(--ouro);font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ouro);background:transparent;cursor:pointer;transition:all .35s cubic-bezier(.2,.7,.3,1)}
+.btn:hover{background:var(--ouro);color:var(--preto)}
+.btn-solid{background:var(--ouro);color:var(--preto)}
+.btn-solid:hover{background:var(--ouro-claro);border-color:var(--ouro-claro)}
+.btn-ghost{border-color:rgba(244,241,234,.28);color:var(--branco)}
+.btn-ghost:hover{background:var(--branco);color:var(--preto);border-color:var(--branco)}
+
+/* Nav */
+header{position:fixed;top:0;left:0;right:0;z-index:100;padding:26px 0;transition:all .4s ease;background:linear-gradient(180deg,rgba(11,11,13,.85),transparent)}
+header.stuck{background:rgba(11,11,13,.96);backdrop-filter:blur(14px);padding:14px 0;border-bottom:1px solid rgba(198,166,100,.14)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-family:var(--serif);font-size:1.15rem;letter-spacing:.22em;text-transform:uppercase;white-space:nowrap}
+.logo b{color:var(--ouro);font-weight:400}
+.menu{display:flex;gap:28px;align-items:center}
+.menu a{font-size:.7rem;letter-spacing:.19em;text-transform:uppercase;color:var(--branco);opacity:.78;position:relative;padding:6px 0;transition:opacity .3s}
+.menu a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--ouro);transition:width .35s ease}
+.menu a:hover{opacity:1}
+.menu a:hover::after{width:100%}
+.lang{display:flex;gap:6px;align-items:center;font-size:.68rem;letter-spacing:.14em}
+.lang button{background:none;border:none;color:var(--cinza);cursor:pointer;font-family:var(--sans);font-size:.68rem;letter-spacing:.14em;padding:4px}
+.lang button.on{color:var(--ouro)}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:8px;width:42px}
+.burger span{display:block;height:1px;background:var(--branco);margin:6px 0;transition:.3s}
+.burger.x span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;
+  background:radial-gradient(120% 90% at 72% 30%,rgba(198,166,100,.10),transparent 58%),
+             url('https://i.ytimg.com/vi/z_TYMwrjrWs/maxresdefault.jpg'),
+             linear-gradient(160deg,#141318,#0B0B0D);
+  background-size:cover,cover,cover;background-position:center,58% 28%,center}
+.hero-bg::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(11,11,13,.93) 0%,rgba(11,11,13,.62) 48%,rgba(11,11,13,.32) 100%),
+             linear-gradient(0deg,var(--preto) 2%,transparent 42%)}
+.grain{position:absolute;inset:0;opacity:.05;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero-in{position:relative;z-index:3;padding:150px 0 110px;max-width:820px}
+.hero h1{font-size:clamp(3rem,9vw,7rem);line-height:.94;font-weight:300;letter-spacing:-.01em;margin-bottom:8px}
+.hero h1 em{display:block;font-style:italic;color:var(--ouro);font-size:.62em;letter-spacing:.02em}
+.hero .tag{font-size:.74rem;letter-spacing:.36em;text-transform:uppercase;color:var(--cinza);margin:26px 0 22px}
+.hero p.sub{font-size:1.12rem;color:rgba(244,241,234,.82);max-width:52ch;margin-bottom:40px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px}
+.scroll-hint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:4;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--cinza);display:flex;flex-direction:column;align-items:center;gap:12px}
+.scroll-hint i{display:block;width:1px;height:52px;background:linear-gradient(var(--ouro),transparent);animation:drop 2.4s infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* Faixa */
+.strip{border-top:1px solid var(--linha);border-bottom:1px solid var(--linha);background:var(--preto-2);padding:26px 0;overflow:hidden}
+.strip-track{display:flex;gap:60px;white-space:nowrap;animation:slide 38s linear infinite;width:max-content}
+.strip-track span{font-family:var(--serif);font-size:1.5rem;font-style:italic;color:rgba(198,166,100,.65)}
+.strip-track span::after{content:'✦';margin-left:60px;font-size:.7rem;vertical-align:middle;color:var(--linha)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+section{padding:110px 0;position:relative}
+.sec-dark{background:var(--preto-2)}
+
+/* Bio */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-txt p{margin-bottom:20px;color:var(--cinza)}
+.about-txt p.first::first-letter{font-family:var(--serif);font-size:3.6rem;float:left;line-height:.86;padding:6px 14px 0 0;color:var(--ouro)}
+.portrait{position:relative;aspect-ratio:4/5}
+.portrait img{width:100%;height:100%;object-fit:cover;position:relative;z-index:1;border:1px solid rgba(198,166,100,.14)}
+.portrait::before{content:'';position:absolute;inset:-16px -16px 16px 16px;border:1px solid var(--linha);z-index:0}
+.stats{display:flex;gap:40px;margin-top:36px;flex-wrap:wrap}
+.stat b{display:block;font-family:var(--serif);font-size:2.4rem;color:var(--ouro);line-height:1}
+.stat span{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cinza)}
+
+/* Vídeos */
+.videos{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
+.videos .wide{grid-column:span 3;aspect-ratio:21/8}
+.video{position:relative;aspect-ratio:16/9;cursor:pointer;overflow:hidden;background:#000}
+.video img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;opacity:.72}
+.video:hover img{transform:scale(1.05);opacity:.95}
+.video .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.video .play i{width:64px;height:64px;border:1px solid var(--ouro);border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(11,11,13,.5);backdrop-filter:blur(4px);transition:.35s}
+.video:hover .play i{background:var(--ouro)}
+.video .play i::after{content:'';border-left:13px solid var(--ouro);border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:4px;transition:.35s}
+.video:hover .play i::after{border-left-color:var(--preto)}
+.video .cap{position:absolute;left:0;right:0;bottom:0;padding:22px;z-index:2;background:linear-gradient(transparent,rgba(11,11,13,.92));font-family:var(--serif);font-size:1.3rem;line-height:1.2}
+.video .cap small{display:block;font-family:var(--sans);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ouro);margin-top:7px}
+.video iframe{width:100%;height:100%;border:0}
+
+.platforms{display:flex;flex-wrap:wrap;gap:14px;margin-top:56px;justify-content:center}
+.plat{display:flex;align-items:center;gap:10px;padding:14px 26px;border:1px solid rgba(244,241,234,.14);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cinza);transition:.3s}
+.plat:hover{border-color:var(--ouro);color:var(--ouro)}
+
+/* Repertório */
+.rep{columns:3;column-gap:56px;margin-top:48px}
+.rep li{list-style:none;padding:13px 0;border-bottom:1px solid rgba(198,166,100,.13);break-inside:avoid;font-family:var(--serif);font-size:1.18rem}
+.rep li span{display:block;font-family:var(--sans);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cinza);margin-top:3px}
+
+/* Agenda */
+.dates{margin-top:48px;border-top:1px solid var(--linha)}
+.date{display:grid;grid-template-columns:130px 1fr auto;gap:28px;align-items:center;padding:26px 4px;border-bottom:1px solid var(--linha);transition:background .3s,padding-left .3s}
+.date:hover{background:rgba(198,166,100,.05);padding-left:16px}
+.date .d{font-family:var(--serif);font-size:1.05rem;color:var(--ouro);letter-spacing:.05em}
+.date .d small{display:block;font-family:var(--sans);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cinza)}
+.date .v{font-family:var(--serif);font-size:1.35rem}
+.date .v small{display:block;font-family:var(--sans);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cinza);margin-top:4px}
+.date .btn{padding:11px 24px;font-size:.64rem}
+
+/* Galeria */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px}
+.gallery a{position:relative;overflow:hidden;display:block;aspect-ratio:1;background:var(--preto-3)}
+.gallery a img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.3,1),opacity .5s;opacity:.9}
+.gallery a:hover img{transform:scale(1.06);opacity:1}
+.gallery a:nth-child(1){grid-column:span 2;grid-row:span 2}
+
+/* Instagram */
+.ig{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:44px}
+.ig-card{border:1px solid var(--linha);background:var(--preto-3);padding:30px 26px 28px;display:flex;flex-direction:column;gap:10px;transition:.4s cubic-bezier(.2,.7,.3,1)}
+.ig-card:hover{transform:translateY(-6px);border-color:var(--ouro);background:#1B1A20}
+.ig-tag{font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ouro)}
+.ig-card p{font-family:var(--serif);font-size:1.3rem;line-height:1.25}
+.ig-card small{font-size:.86rem;color:var(--cinza);line-height:1.6}
+.ig-card::after{content:'→';color:var(--ouro);margin-top:auto;padding-top:14px;font-size:1.1rem}
+
+/* Imprensa */
+.press{text-align:center;max-width:900px;margin:0 auto}
+.quote{font-family:var(--serif);font-size:clamp(1.5rem,3.6vw,2.4rem);font-style:italic;line-height:1.4;color:var(--branco);margin-bottom:26px}
+.quote::before,.quote::after{content:'"';color:var(--ouro)}
+.press cite{font-style:normal;font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ouro)}
+
+/* Contato */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.field{margin-bottom:22px}
+.field label{display:block;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cinza);margin-bottom:9px}
+.field input,.field textarea,.field select{width:100%;background:transparent;border:1px solid rgba(244,241,234,.16);padding:14px 16px;color:var(--branco);font-family:var(--sans);font-size:.95rem;font-weight:300;transition:border-color .3s}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--ouro)}
+.field select option{background:var(--preto-2)}
+.field textarea{resize:vertical;min-height:120px}
+.contact-info li{list-style:none;padding:20px 0;border-bottom:1px solid var(--linha)}
+.contact-info li span{display:block;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cinza);margin-bottom:6px}
+.contact-info li a,.contact-info li p{font-family:var(--serif);font-size:1.25rem}
+.contact-info li a:hover{color:var(--ouro)}
+.news-box{background:var(--preto-3);border:1px solid var(--linha);padding:56px 44px;text-align:center;margin-top:24px}
+.news-form{display:flex;gap:12px;max-width:520px;margin:26px auto 0;flex-wrap:wrap}
+.news-form input{flex:1;min-width:220px;background:transparent;border:1px solid rgba(244,241,234,.2);padding:15px 18px;color:var(--branco);font-family:var(--sans);font-weight:300}
+.news-form input:focus{outline:none;border-color:var(--ouro)}
+
+footer{background:#07070A;padding:70px 0 34px;border-top:1px solid var(--linha)}
+.foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;padding-bottom:44px;border-bottom:1px solid rgba(244,241,234,.07)}
+.socials{display:flex;gap:14px;flex-wrap:wrap}
+.socials a{width:44px;height:44px;border:1px solid rgba(244,241,234,.16);display:flex;align-items:center;justify-content:center;transition:.3s}
+.socials a:hover{border-color:var(--ouro);background:var(--ouro)}
+.socials svg{width:17px;height:17px;fill:var(--branco);transition:.3s}
+.socials a:hover svg{fill:var(--preto)}
+.foot-bot{padding-top:28px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.7rem;color:var(--cinza);letter-spacing:.08em}
+.foot-bot a:hover{color:var(--ouro)}
+
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+
+/* Prévia — chips e selo */
+.chip{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cinza);border:1px solid rgba(244,241,234,.16);padding:9px 18px;white-space:nowrap}
+.plat.soon{cursor:default;opacity:.55}
+.plat.soon em{font-style:normal;font-size:.58rem;letter-spacing:.16em;color:var(--ouro);opacity:.85}
+#selo{
+  position:fixed;left:22px;bottom:22px;z-index:150;max-width:340px;
+  display:flex;align-items:flex-start;gap:14px;
+  padding:18px 20px;background:rgba(17,17,20,.94);backdrop-filter:blur(14px);
+  border:1px solid var(--linha);box-shadow:0 18px 50px rgba(0,0,0,.55);
+  animation:selo-in .8s .9s cubic-bezier(.2,.7,.3,1) both;
+}
+@keyframes selo-in{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.selo-dot{width:8px;height:8px;border-radius:50%;background:var(--ouro);margin-top:7px;flex:0 0 auto;animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+#selo b{display:block;font-family:var(--sans);font-size:.66rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--ouro);margin-bottom:6px}
+#selo i{font-style:normal;font-size:.82rem;color:var(--cinza);line-height:1.55}
+#selo button{background:none;border:none;color:var(--cinza);font-size:1.3rem;line-height:1;cursor:pointer;padding:0 0 0 4px;font-family:var(--sans)}
+#selo button:hover{color:var(--ouro)}
+@media (max-width:560px){#selo{left:14px;right:14px;bottom:14px;max-width:none;padding:15px 16px}#selo i{font-size:.78rem}}
+
+/* Lightbox */
+#lb{position:fixed;inset:0;z-index:200;background:rgba(7,7,10,.97);display:none;align-items:center;justify-content:center;padding:40px;cursor:zoom-out}
+#lb.on{display:flex}
+#lb img{max-width:100%;max-height:100%;object-fit:contain;border:1px solid var(--linha)}
+#lb b{position:absolute;top:22px;right:30px;color:var(--ouro);font-size:2rem;font-weight:300;cursor:pointer;line-height:1}
+
+@media (max-width:980px){
+  .about,.contact{grid-template-columns:1fr;gap:48px}
+  .videos{grid-template-columns:repeat(2,1fr)}
+  .videos .wide{grid-column:span 2;aspect-ratio:16/7}
+  .rep{columns:2;column-gap:40px}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .gallery a:nth-child(1){grid-column:span 2;grid-row:auto;aspect-ratio:4/3}
+}
+@media (max-width:820px){
+  .burger{display:block}
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,340px);background:rgba(9,9,12,.985);backdrop-filter:blur(18px);flex-direction:column;justify-content:center;gap:30px;transform:translateX(100%);transition:transform .45s cubic-bezier(.2,.7,.3,1);border-left:1px solid var(--linha)}
+  .menu.open{transform:none}
+  .menu a{font-size:.9rem;letter-spacing:.24em}
+  section{padding:80px 0}
+  .hero-in{padding:130px 0 100px}
+  .date{grid-template-columns:1fr;gap:12px}
+  .date .btn{justify-self:start}
+}
+@media (max-width:560px){
+  .wrap{padding:0 20px}
+  .videos{grid-template-columns:1fr}
+  .videos .wide{grid-column:span 1;aspect-ratio:16/9}
+  .rep{columns:1}
+  .gallery{grid-template-columns:1fr}
+  .gallery a:nth-child(1){grid-column:span 1;aspect-ratio:4/3}
+  .news-box{padding:40px 22px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#top" class="logo">Paulo José <b>Benevides</b></a>
+    <nav class="menu" id="menu">
+      <a href="#sobre"      data-pt="Biografia"  data-en="Biography">Biografia</a>
+      <a href="#musica"     data-pt="Música"     data-en="Music">Música</a>
+      <a href="#repertorio" data-pt="Repertório" data-en="Repertoire">Repertório</a>
+      <a href="#agenda"     data-pt="Agenda"     data-en="Tour">Agenda</a>
+      <a href="#galeria"    data-pt="Galeria"    data-en="Gallery">Galeria</a>
+      <a href="#contato"    data-pt="Contratar"  data-en="Booking">Contratar</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:14px">
+      <div class="lang">
+        <button class="on" data-lang="pt">PT</button><span style="color:var(--linha)">/</span><button data-lang="en">EN</button>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top" style="padding:0">
+  <div class="hero-bg"></div>
+  <div class="grain"></div>
+  <div class="wrap hero-in">
+    <span class="eyebrow" data-pt="Site oficial" data-en="Official website">Site oficial</span>
+    <h1>Paulo José<em>Benevides</em></h1>
+    <p class="tag" data-pt="Jazz · Big Band · Standards · Erudito" data-en="Jazz · Big Band · Standards · Classical">Jazz · Big Band · Standards · Erudito</p>
+    <p class="sub" data-pt="Mais de 5.000 casamentos, shows e eventos de luxo em nove países. De Nova York ao Blue Note, a voz brasileira do repertório que atravessa gerações."
+       data-en="Over 5,000 weddings, concerts and luxury events across nine countries. From New York to the Blue Note, the Brazilian voice of the repertoire that crosses generations.">
+      Mais de 5.000 casamentos, shows e eventos de luxo em nove países. De Nova York ao Blue Note, a voz brasileira do repertório que atravessa gerações.
+    </p>
+    <div class="hero-cta">
+      <a href="#musica"  class="btn btn-solid" data-pt="Ouvir agora"    data-en="Listen now">Ouvir agora</a>
+      <a href="#contato" class="btn btn-ghost" data-pt="Contratar show" data-en="Book a show">Contratar show</a>
+    </div>
+  </div>
+  <div class="scroll-hint"><span data-pt="Role" data-en="Scroll">Role</span><i></i></div>
+</section>
+
+<!-- FAIXA -->
+<div class="strip">
+  <div class="strip-track">
+    <span>Frank Sinatra</span><span>Andrea Bocelli</span><span>Tony Bennett</span><span>Nat King Cole</span><span>Michael Bublé</span><span>Elton John</span><span>Antônio Carlos Jobim</span>
+    <span>Frank Sinatra</span><span>Andrea Bocelli</span><span>Tony Bennett</span><span>Nat King Cole</span><span>Michael Bublé</span><span>Elton John</span><span>Antônio Carlos Jobim</span>
+  </div>
+</div>
+
+<!-- BIOGRAFIA -->
+<section id="sobre">
+  <div class="wrap about">
+    <div class="about-txt rv">
+      <span class="eyebrow" data-pt="A trajetória" data-en="The journey">A trajetória</span>
+      <h2 class="sec-title" data-pt="A voz que encanta por onde passa" data-en="The voice that enchants wherever it goes">A voz que encanta por onde passa</h2>
+
+      <p class="first" data-pt="Paulo José Benevides construiu uma carreira rara no Brasil: a de um intérprete igualmente à vontade no jazz americano, no repertório de big band e na música erudita. Sua voz transita entre o suingue dos standards e a amplitude do canto lírico com a mesma naturalidade."
+         data-en="Paulo José Benevides has built a rare career in Brazil: that of a performer equally at home in American jazz, the big band repertoire and classical music. His voice moves between the swing of the standards and the breadth of operatic singing with the same ease.">
+        Paulo José Benevides construiu uma carreira rara no Brasil: a de um intérprete igualmente à vontade no jazz americano, no repertório de big band e na música erudita. Sua voz transita entre o suingue dos standards e a amplitude do canto lírico com a mesma naturalidade.
+      </p>
+
+      <p data-pt="São mais de 5.000 apresentações entre casamentos, shows e eventos de luxo, em nove países — Brasil, Estados Unidos, Israel, Itália, Portugal, México, Espanha, Áustria e França. Em Nova York, gravou um concerto ao lado da Terra Symphony Orchestra; no Rio, dividiu o palco do Blue Note com uma big band completa."
+         data-en="More than 5,000 performances across weddings, concerts and luxury events, in nine countries — Brazil, the United States, Israel, Italy, Portugal, Mexico, Spain, Austria and France. In New York he recorded a concert with the Terra Symphony Orchestra; in Rio he took the Blue Note stage with a full big band.">
+        São mais de 5.000 apresentações entre casamentos, shows e eventos de luxo, em nove países — Brasil, Estados Unidos, Israel, Itália, Portugal, México, Espanha, Áustria e França. Em Nova York, gravou um concerto ao lado da Terra Symphony Orchestra; no Rio, dividiu o palco do Blue Note com uma big band completa.
+      </p>
+
+      <p data-pt="Do repertório eternizado por Frank Sinatra às árias que consagraram Andrea Bocelli, passando por Jobim e Elton John, cada apresentação é construída como um concerto — luz, arranjo e narrativa. No Ceará, sua terra, já cantou em casas como o Teatro RioMar e o Teatro José de Alencar, incluindo o espetáculo beneficente “Canta para Toda a Terra”."
+         data-en="From the repertoire immortalised by Frank Sinatra to the arias that made Andrea Bocelli famous, by way of Jobim and Elton John, every performance is built as a concert — lighting, arrangement and narrative. In Ceará, his home state, he has sung at venues such as Teatro RioMar and Teatro José de Alencar, including the benefit show “Canta para Toda a Terra”.">
+        Do repertório eternizado por Frank Sinatra às árias que consagraram Andrea Bocelli, passando por Jobim e Elton John, cada apresentação é construída como um concerto — luz, arranjo e narrativa. No Ceará, sua terra, já cantou em casas como o Teatro RioMar e o Teatro José de Alencar, incluindo o espetáculo beneficente “Canta para Toda a Terra”.
+      </p>
+
+      <div class="stats">
+        <div class="stat"><b>5.000+</b><span data-pt="Apresentações" data-en="Performances">Apresentações</span></div>
+        <div class="stat"><b>9</b><span data-pt="Países" data-en="Countries">Países</span></div>
+        <div class="stat"><b>79 mil</b><span data-pt="Seguidores" data-en="Followers">Seguidores</span></div>
+      </div>
+    </div>
+
+    <div class="portrait rv">
+      <img src="https://lh3.googleusercontent.com/d/1eaRrrGH5aQkvqWYDr5l_DMFs7nN50n51=w1200"
+           alt="Retrato de Paulo José Benevides" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- MÚSICA -->
+<section id="musica" class="sec-dark">
+  <div class="wrap">
+    <div class="rv" style="text-align:center">
+      <span class="eyebrow" data-pt="Assista e ouça" data-en="Watch and listen">Assista e ouça</span>
+      <h2 class="sec-title" data-pt="A música" data-en="The music">A música</h2>
+      <p class="lead" style="margin:0 auto" data-pt="Gravações ao vivo, com orquestra e big band — de Nova York ao Teatro José de Alencar."
+         data-en="Live recordings, with orchestra and big band — from New York to Teatro José de Alencar.">
+        Gravações ao vivo, com orquestra e big band — de Nova York ao Teatro José de Alencar.
+      </p>
+    </div>
+
+    <div class="videos">
+      <div class="video rv wide" data-yt="pYaSMLe_JfQ">
+        <img src="https://i.ytimg.com/vi/pYaSMLe_JfQ/maxresdefault.jpg" alt="You Raise Me Up — Live in New York" loading="lazy">
+        <div class="play"><i></i></div>
+        <div class="cap">You Raise Me Up<small>Live in New York · Terra Symphony Orchestra</small></div>
+      </div>
+
+      <div class="video rv" data-yt="dqwjcdhWJ0Q">
+        <img src="https://i.ytimg.com/vi/dqwjcdhWJ0Q/maxresdefault.jpg" alt="My Way — Paulo José Benevides" loading="lazy">
+        <div class="play"><i></i></div>
+        <div class="cap">My Way<small>Frank Sinatra</small></div>
+      </div>
+
+      <div class="video rv" data-yt="dUgsO7wz9cs">
+        <img src="https://i.ytimg.com/vi/dUgsO7wz9cs/maxresdefault.jpg" alt="Caruso — Paulo José Benevides" loading="lazy">
+        <div class="play"><i></i></div>
+        <div class="cap">Caruso<small>Lucio Dalla</small></div>
+      </div>
+
+      <div class="video rv" data-yt="KVtObAqwd8o">
+        <img src="https://i.ytimg.com/vi/KVtObAqwd8o/maxresdefault.jpg" alt="Perfect Symphony — Paulo José Benevides" loading="lazy">
+        <div class="play"><i></i></div>
+        <div class="cap">Perfect Symphony<small>Ed Sheeran &amp; Bocelli</small></div>
+      </div>
+
+      <div class="video rv" data-yt="XZycFSmd-2M">
+        <img src="https://i.ytimg.com/vi/XZycFSmd-2M/maxresdefault.jpg" alt="Chega de Saudade — Paulo José Benevides" loading="lazy">
+        <div class="play"><i></i></div>
+        <div class="cap">Chega de Saudade<small>Tom Jobim</small></div>
+      </div>
+
+      <div class="video rv" data-yt="z_TYMwrjrWs">
+        <img src="https://i.ytimg.com/vi/z_TYMwrjrWs/maxresdefault.jpg" alt="Hello Detroit — Paulo José Benevides" loading="lazy">
+        <div class="play"><i></i></div>
+        <div class="cap">Hello Detroit<small data-pt="Ao vivo com orquestra" data-en="Live with orchestra">Ao vivo com orquestra</small></div>
+      </div>
+
+      <div class="video rv" data-yt="n65nZJ6epIc">
+        <img src="https://i.ytimg.com/vi/n65nZJ6epIc/maxresdefault.jpg" alt="Mucuripe — Teatro José de Alencar" loading="lazy">
+        <div class="play"><i></i></div>
+        <div class="cap">Mucuripe<small>Teatro José de Alencar</small></div>
+      </div>
+    </div>
+
+    <div class="platforms rv">
+      <a class="plat" href="https://www.youtube.com/@PauloBenevidesOficial" target="_blank" rel="noopener">YouTube</a>
+      <span class="plat soon">Spotify <em data-pt="em breve" data-en="soon">em breve</em></span>
+      <span class="plat soon">Apple Music <em data-pt="em breve" data-en="soon">em breve</em></span>
+      <span class="plat soon">Deezer <em data-pt="em breve" data-en="soon">em breve</em></span>
+      <span class="plat soon">Amazon Music <em data-pt="em breve" data-en="soon">em breve</em></span>
+    </div>
+  </div>
+</section>
+
+<!-- REPERTÓRIO -->
+<section id="repertorio">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow" data-pt="O que ele canta" data-en="What he sings">O que ele canta</span>
+      <h2 class="sec-title" data-pt="Repertório" data-en="Repertoire">Repertório</h2>
+      <p class="lead" data-pt="Do jazz americano ao bel canto italiano, passando pela bossa nova. Repertório em português, inglês, italiano e hebraico."
+         data-en="From American jazz to Italian bel canto, by way of bossa nova. Repertoire in Portuguese, English, Italian and Hebrew.">
+        Do jazz americano ao bel canto italiano, passando pela bossa nova. Repertório em português, inglês, italiano e hebraico.
+      </p>
+    </div>
+
+    <ul class="rep rv">
+      <li>My Way<span>Frank Sinatra</span></li>
+      <li>Let Me Try Again<span>Frank Sinatra</span></li>
+      <li>The Way You Look Tonight<span>Jerome Kern</span></li>
+      <li>Unchained Melody<span>The Righteous Brothers</span></li>
+      <li>Caruso<span>Lucio Dalla</span></li>
+      <li>Canto Della Terra<span>Andrea Bocelli</span></li>
+      <li>Un Amore Così Grande<span>Mario Del Monaco</span></li>
+      <li>Perfect Symphony<span>Ed Sheeran &amp; Bocelli</span></li>
+      <li>You Raise Me Up<span>Josh Groban</span></li>
+      <li>She<span>Charles Aznavour</span></li>
+      <li>Your Song<span>Elton John</span></li>
+      <li>That's What Friends Are For<span>Dionne Warwick</span></li>
+      <li>Chega de Saudade<span>Tom Jobim</span></li>
+      <li>Mucuripe<span>Fagner &amp; Belchior</span></li>
+      <li>Hello Detroit<span>Sammy Davis Jr.</span></li>
+      <li>The World We Knew<span>Frank Sinatra</span></li>
+      <li>Amazing Grace<span data-pt="Tradicional" data-en="Traditional">Tradicional</span></li>
+      <li>Jerusalém de Ouro<span>Naomi Shemer</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- AGENDA -->
+<section id="agenda" class="sec-dark">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow" data-pt="Próximos shows" data-en="Upcoming shows">Próximos shows</span>
+      <h2 class="sec-title" data-pt="Agenda" data-en="Tour">Agenda</h2>
+      <p class="lead" data-pt="Onde a voz vai estar. Para trazer o show para a sua cidade ou evento, fale com a produção."
+         data-en="Where the voice will be. To bring the show to your city or event, get in touch with management.">
+        Onde a voz vai estar. Para trazer o show para a sua cidade ou evento, fale com a produção.
+      </p>
+    </div>
+
+    <div class="dates rv">
+      <div class="date">
+        <div class="d">18 SET 2026<small>Sexta · 20h</small></div>
+        <div class="v">Teatro RioMar<small>Fortaleza · CE</small></div>
+        <span class="chip" data-pt="A confirmar" data-en="To confirm">A confirmar</span>
+      </div>
+      <div class="date">
+        <div class="d">24 OUT 2026<small>Sábado · 21h</small></div>
+        <div class="v">Teatro José de Alencar<small>Fortaleza · CE</small></div>
+        <span class="chip" data-pt="A confirmar" data-en="To confirm">A confirmar</span>
+      </div>
+      <div class="date">
+        <div class="d">12 DEZ 2026<small>Sábado · 20h</small></div>
+        <div class="v"><span data-pt="Especial de Natal — com orquestra" data-en="Christmas Special — with orchestra">Especial de Natal — com orquestra</span><small>Fortaleza · CE</small></div>
+        <span class="chip" data-pt="A confirmar" data-en="To confirm">A confirmar</span>
+      </div>
+    </div>
+
+    <p style="margin-top:26px;font-size:.74rem;letter-spacing:.1em;color:var(--cinza);font-style:italic;font-family:var(--serif);font-size:1.05rem"
+       data-pt="Estas datas são apenas um exemplo de como a agenda vai aparecer. Paulo, é só passar os shows reais."
+       data-en="These dates are only an example of how the tour list will look.">
+      Estas datas são apenas um exemplo de como a agenda vai aparecer. Paulo, é só passar os shows reais.
+    </p>
+  </div>
+</section>
+
+<!-- IMPRENSA -->
+<section>
+  <div class="wrap press rv">
+    <span class="eyebrow" data-pt="Imprensa" data-en="Press">Imprensa</span>
+    <p class="quote" data-pt="Solta a voz e encanta o público com um show extraordinário."
+       data-en="He lets his voice loose and enchants the audience with an extraordinary show.">
+      Solta a voz e encanta o público com um show extraordinário.
+    </p>
+    <cite>Portal IN · Teatro RioMar Fortaleza</cite>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section id="galeria" class="sec-dark">
+  <div class="wrap">
+    <div class="rv" style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <div>
+        <span class="eyebrow" data-pt="Retratos" data-en="Portraits">Retratos</span>
+        <h2 class="sec-title" style="margin-bottom:0" data-pt="Galeria" data-en="Gallery">Galeria</h2>
+      </div>
+      <a class="btn" href="https://www.instagram.com/paulojosebenevidesoficial/" target="_blank" rel="noopener"
+         data-pt="Instagram · 79 mil" data-en="Instagram · 79k">Instagram · 79 mil</a>
+    </div>
+
+    <div class="gallery rv">
+      <a data-full="1msWwcX1uFFyIU92lls3f6fAENEbyhNkz"><img src="https://lh3.googleusercontent.com/d/1msWwcX1uFFyIU92lls3f6fAENEbyhNkz=w1200" alt="Paulo José Benevides" loading="lazy"></a>
+      <a data-full="1bGENYqJN9bz9XavAz9NXpNtDgNZnut-b"><img src="https://lh3.googleusercontent.com/d/1bGENYqJN9bz9XavAz9NXpNtDgNZnut-b=w700" alt="Paulo José Benevides" loading="lazy"></a>
+      <a data-full="1CNtPpZzd_Lw5Xhk8SyWEar8khMg5unrz"><img src="https://lh3.googleusercontent.com/d/1CNtPpZzd_Lw5Xhk8SyWEar8khMg5unrz=w700" alt="Paulo José Benevides" loading="lazy"></a>
+      <a data-full="1TeQAIFcTE0O94__VKre4TtUTgpQo4fnC"><img src="https://lh3.googleusercontent.com/d/1TeQAIFcTE0O94__VKre4TtUTgpQo4fnC=w700" alt="Paulo José Benevides" loading="lazy"></a>
+      <a data-full="1Q3a2yNGcZlCOuG60pxDF3CaL5a1NFlEB"><img src="https://lh3.googleusercontent.com/d/1Q3a2yNGcZlCOuG60pxDF3CaL5a1NFlEB=w700" alt="Paulo José Benevides" loading="lazy"></a>
+      <a data-full="1Xs0UQ7Mwn9P09qfpSLekVZhixA7EHN8O"><img src="https://lh3.googleusercontent.com/d/1Xs0UQ7Mwn9P09qfpSLekVZhixA7EHN8O=w700" alt="Paulo José Benevides" loading="lazy"></a>
+      <a data-full="1wjCwhWI2Y3A99ChR4Q5Qn39kY7DMeiHX"><img src="https://lh3.googleusercontent.com/d/1wjCwhWI2Y3A99ChR4Q5Qn39kY7DMeiHX=w700" alt="Paulo José Benevides" loading="lazy"></a>
+      <a data-full="1XfslpCZZtxs39DTaZm8If4bxQ1bY09FT"><img src="https://lh3.googleusercontent.com/d/1XfslpCZZtxs39DTaZm8If4bxQ1bY09FT=w700" alt="Paulo José Benevides" loading="lazy"></a>
+      <a data-full="1Xs7fTgECDEYDogzGvEUbEe77or-pJK_v"><img src="https://lh3.googleusercontent.com/d/1Xs7fTgECDEYDogzGvEUbEe77or-pJK_v=w700" alt="Paulo José Benevides" loading="lazy"></a>
+    </div>
+
+    <div class="ig rv">
+      <a class="ig-card" href="https://www.instagram.com/paulojosebenevidesoficial/reel/DbEcRVXxrTO/" target="_blank" rel="noopener">
+        <span class="ig-tag">Reel</span>
+        <p>The World We Knew — Live in NY</p>
+        <small data-pt="Nova York, com a Terra Symphony Orchestra. Uma noite gravada pra sempre."
+               data-en="New York, with the Terra Symphony Orchestra. A night recorded forever.">Nova York, com a Terra Symphony Orchestra. Uma noite gravada pra sempre.</small>
+      </a>
+      <a class="ig-card" href="https://www.instagram.com/paulojosebenevidesoficial/reel/DbHHHTaRaBi/" target="_blank" rel="noopener">
+        <span class="ig-tag">Reel</span>
+        <p data-pt="Big Band completa" data-en="Full Big Band">Big Band completa</p>
+        <small data-pt="A elegância e a energia de uma big band completa no palco."
+               data-en="The elegance and energy of a full big band on stage.">A elegância e a energia de uma big band completa no palco.</small>
+      </a>
+      <a class="ig-card" href="https://www.instagram.com/paulojosebenevidesoficial/reel/DaWEVlpRk0q/" target="_blank" rel="noopener">
+        <span class="ig-tag">Reel</span>
+        <p>The Way You Look Tonight</p>
+        <small data-pt="“Some day, when I'm awfully low…” — o clássico, do jeitinho dele."
+               data-en="“Some day, when I'm awfully low…” — the classic, his way.">“Some day, when I'm awfully low…” — o clássico, do jeitinho dele.</small>
+      </a>
+      <a class="ig-card" href="https://www.instagram.com/paulojosebenevidesoficial/reel/DatxQ-zMu7V/" target="_blank" rel="noopener">
+        <span class="ig-tag">Reel</span>
+        <p data-pt="Dois casamentos, um dia" data-en="Two weddings, one day">Dois casamentos, um dia</p>
+        <small data-pt="Duas histórias diferentes e a mesma sensação no fim do dia: gratidão."
+               data-en="Two different stories and the same feeling at the end of the day: gratitude.">Duas histórias diferentes e a mesma sensação no fim do dia: gratidão.</small>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="wrap">
+    <div class="contact">
+      <div class="rv">
+        <span class="eyebrow" data-pt="Contratação" data-en="Booking">Contratação</span>
+        <h2 class="sec-title" data-pt="Leve o show até você" data-en="Bring the show to you">Leve o show até você</h2>
+        <p class="lead" style="margin-bottom:34px" data-pt="Teatros, casamentos, eventos corporativos, festivais e apresentações beneficentes. Conte o que você tem em mente."
+           data-en="Theatres, weddings, corporate events, festivals and benefit performances. Tell us what you have in mind.">
+          Teatros, casamentos, eventos corporativos, festivais e apresentações beneficentes. Conte o que você tem em mente.
+        </p>
+
+        <form id="form">
+          <div class="field">
+            <label data-pt="Seu nome" data-en="Your name">Seu nome</label>
+            <input type="text" name="nome" required>
+          </div>
+          <div class="field">
+            <label data-pt="E-mail ou WhatsApp" data-en="Email or phone">E-mail ou WhatsApp</label>
+            <input type="text" name="contato" required>
+          </div>
+          <div class="field">
+            <label data-pt="Tipo de evento" data-en="Type of event">Tipo de evento</label>
+            <select name="tipo">
+              <option data-pt="Casamento"          data-en="Wedding">Casamento</option>
+              <option data-pt="Teatro / concerto"  data-en="Theatre / concert">Teatro / concerto</option>
+              <option data-pt="Evento corporativo" data-en="Corporate event">Evento corporativo</option>
+              <option data-pt="Festival"           data-en="Festival">Festival</option>
+              <option data-pt="Beneficente"        data-en="Benefit">Beneficente</option>
+              <option data-pt="Outro"              data-en="Other">Outro</option>
+            </select>
+          </div>
+          <div class="field">
+            <label data-pt="Data, cidade e detalhes" data-en="Date, city and details">Data, cidade e detalhes</label>
+            <textarea name="msg" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-solid" data-pt="Enviar pelo WhatsApp" data-en="Send via WhatsApp">Enviar pelo WhatsApp</button>
+          <p id="form-ok" style="display:none;margin-top:20px;color:var(--ouro);font-family:var(--serif);font-size:1.1rem"></p>
+        </form>
+      </div>
+
+      <div class="rv">
+        <ul class="contact-info">
+          <li>
+            <span data-pt="Produção &amp; booking" data-en="Management &amp; booking">Produção &amp; booking</span>
+            <p style="color:var(--cinza)" data-pt="e-mail a definir" data-en="email to be defined">e-mail a definir</p>
+          </li>
+          <li>
+            <span>WhatsApp</span>
+            <p style="color:var(--cinza)" data-pt="número a definir" data-en="number to be defined">número a definir</p>
+          </li>
+          <li>
+            <span data-pt="Base" data-en="Based in">Base</span>
+            <p>Fortaleza · Ceará · Brasil</p>
+          </li>
+          <li>
+            <span data-pt="Também disponível em" data-en="Also available in">Também disponível em</span>
+            <p style="font-size:1.05rem">🇧🇷 🇺🇸 🇮🇱 🇮🇹 🇵🇹 🇲🇽 🇪🇸 🇦🇹 🇫🇷</p>
+          </li>
+        </ul>
+
+        <div class="news-box">
+          <span class="eyebrow" style="margin-bottom:14px">Newsletter</span>
+          <h3 style="font-size:1.7rem;margin-bottom:8px" data-pt="Novidades em primeira mão" data-en="Be the first to know">Novidades em primeira mão</h3>
+          <p style="color:var(--cinza);font-size:.95rem" data-pt="Novas gravações, datas de shows e pré-venda de ingressos."
+             data-en="New recordings, tour dates and ticket pre-sales.">Novas gravações, datas de shows e pré-venda de ingressos.</p>
+          <form class="news-form" id="news">
+            <input type="email" placeholder="seu@email.com" required>
+            <button class="btn btn-solid" type="submit" data-pt="Assinar" data-en="Subscribe">Assinar</button>
+          </form>
+          <p id="news-ok" style="display:none;color:var(--ouro);margin-top:16px;font-size:.9rem"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RODAPÉ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="logo" style="font-size:1.4rem;margin-bottom:14px">Paulo José <b>Benevides</b></div>
+        <p style="color:var(--cinza);font-size:.9rem;max-width:38ch" data-pt="Jazz, big band e música erudita. Fortaleza, Brasil."
+           data-en="Jazz, big band and classical music. Fortaleza, Brazil.">Jazz, big band e música erudita. Fortaleza, Brasil.</p>
+      </div>
+      <div class="socials">
+        <a href="https://www.instagram.com/paulojosebenevidesoficial/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.8-.1zm0 5.3a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9zm0 7.4a2.9 2.9 0 1 1 0-5.8 2.9 2.9 0 0 1 0 5.8zm5.7-7.6a1.05 1.05 0 1 1-2.1 0 1.05 1.05 0 0 1 2.1 0z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/paulobenevidesoficial/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M13.5 22v-9h3l.5-3.5h-3.5V7.3c0-1 .3-1.7 1.8-1.7H17V2.4C16.7 2.4 15.6 2.3 14.4 2.3c-2.6 0-4.4 1.6-4.4 4.5v2.7H7V13h3v9h3.5z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@PauloBenevidesOficial" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M23 12s0-3.2-.4-4.7c-.2-.8-.9-1.5-1.7-1.7C19.4 5.2 12 5.2 12 5.2s-7.4 0-8.9.4c-.8.2-1.5.9-1.7 1.7C1 8.8 1 12 1 12s0 3.2.4 4.7c.2.8.9 1.5 1.7 1.7 1.5.4 8.9.4 8.9.4s7.4 0 8.9-.4c.8-.2 1.5-.9 1.7-1.7.4-1.5.4-4.7.4-4.7zM9.8 15.3V8.7l6 3.3-6 3.3z"/></svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener" aria-label="Spotify" data-spotify>
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 14.4a.62.62 0 0 1-.86.2c-2.34-1.43-5.3-1.76-8.78-.96a.62.62 0 1 1-.28-1.22c3.8-.87 7.08-.5 9.7 1.11.3.18.39.57.22.87zm1.23-2.74a.78.78 0 0 1-1.07.26c-2.68-1.65-6.77-2.13-9.94-1.16a.78.78 0 1 1-.45-1.49c3.62-1.1 8.12-.56 11.2 1.33.36.22.48.7.26 1.06zm.11-2.86c-3.21-1.91-8.5-2.08-11.57-1.15a.93.93 0 1 1-.54-1.79c3.52-1.07 9.37-.86 13.07 1.33a.94.94 0 0 1-.96 1.61z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <p>© <span id="ano">2026</span> Paulo José Benevides. <span data-pt="Todos os direitos reservados." data-en="All rights reserved.">Todos os direitos reservados.</span></p>
+      <p><span data-pt="Direção musical" data-en="Musical direction">Direção musical</span>: Cezar Moreira · <a href="#top" data-pt="Voltar ao topo" data-en="Back to top">Voltar ao topo</a></p>
+    </div>
+  </div>
+</footer>
+
+<div id="lb"><b>&times;</b><img alt=""></div>
+
+<!-- SELO DE PRÉVIA -->
+<div id="selo">
+  <span class="selo-dot"></span>
+  <div>
+    <b data-pt="Prévia para aprovação" data-en="Preview for approval">Prévia para aprovação</b>
+    <i data-pt="Fotos, vídeos e biografia já são reais. Agenda e contatos entram depois."
+       data-en="Photos, videos and biography are already real. Tour dates and contacts come later.">Fotos, vídeos e biografia já são reais. Agenda e contatos entram depois.</i>
+  </div>
+  <button id="selo-x" aria-label="Fechar">&times;</button>
+</div>
+
+<script>
+/* PRÉVIA — versão para aprovação. Links de contato desativados de propósito. */
+document.querySelectorAll('[data-spotify],[data-apple]').forEach(a=>{
+  a.removeAttribute('href'); a.style.opacity='.45'; a.style.cursor='default';
+});
+document.getElementById('ano').textContent=new Date().getFullYear();
+
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('stuck',scrollY>60));
+
+const burger=document.getElementById('burger'), menu=document.getElementById('menu');
+burger.addEventListener('click',()=>{menu.classList.toggle('open');burger.classList.toggle('x')});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');burger.classList.remove('x')}));
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// vídeos carregam só no clique
+document.querySelectorAll('.video').forEach(v=>{
+  v.addEventListener('click',()=>{
+    const id=v.dataset.yt; if(!id) return;
+    v.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;picture-in-picture" allowfullscreen title="Vídeo"></iframe>';
+  });
+});
+
+// galeria com lightbox
+const lb=document.getElementById('lb'), lbImg=lb.querySelector('img');
+document.querySelectorAll('.gallery a').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    lbImg.src='https://lh3.googleusercontent.com/d/'+a.dataset.full+'=w1800';
+    lb.classList.add('on');
+  });
+});
+lb.addEventListener('click',()=>{lb.classList.remove('on');lbImg.src=''});
+addEventListener('keydown',e=>{if(e.key==='Escape'){lb.classList.remove('on');lbImg.src=''}});
+
+// idioma PT / EN
+let lang='pt';
+function setLang(l){
+  lang=l;
+  document.documentElement.lang = l==='pt' ? 'pt-BR' : 'en';
+  document.querySelectorAll('[data-pt]').forEach(el=>{
+    const t=el.getAttribute('data-'+l);
+    if(t!==null) el.textContent=t;
+  });
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
+}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+
+// PRÉVIA: o formulário mostra o que vai acontecer, sem abrir WhatsApp de mentira
+document.getElementById('form').addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=e.target, ok=document.getElementById('form-ok');
+  ok.innerHTML = (lang==='pt'
+    ? 'No site publicado, esta mensagem cai <b>direto no WhatsApp da produção</b>, já escrita assim:'
+    : 'On the live site, this message goes <b>straight to management\'s WhatsApp</b>, written like this:')
+    + '<span style="display:block;margin-top:14px;padding:16px;border:1px solid var(--linha);background:var(--preto-3);font-family:var(--sans);font-size:.86rem;color:var(--cinza);white-space:pre-line;text-align:left">'
+    + (lang==='pt'?'Olá! Gostaria de contratar um show.':'Hello! I would like to book a show.')+'\n\n'
+    + (lang==='pt'?'Nome':'Name')+': '+(f.nome.value||'—')+'\n'
+    + (lang==='pt'?'Contato':'Contact')+': '+(f.contato.value||'—')+'\n'
+    + (lang==='pt'?'Evento':'Event')+': '+f.tipo.value+'\n'
+    + (lang==='pt'?'Detalhes':'Details')+': '+(f.msg.value||'—')
+    + '</span>';
+  ok.style.display='block';
+});
+
+document.getElementById('news').addEventListener('submit',e=>{
+  e.preventDefault();
+  const ok=document.getElementById('news-ok');
+  ok.textContent = lang==='pt' ? 'Obrigado! Em breve você recebe novidades.' : 'Thank you! You will hear from us soon.';
+  ok.style.display='block';
+  e.target.reset();
+});
+
+// selo de prévia
+document.getElementById('selo-x').addEventListener('click',()=>document.getElementById('selo').remove());
+</script>
+</body>
+</html>

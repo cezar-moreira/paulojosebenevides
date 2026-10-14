@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Prévia · Paulo José Benevides</title>
+<title>Paulo José Benevides — Site Oficial</title>
 <meta name="description" content="Site oficial de Paulo José Benevides. Cantor brasileiro de jazz, big band, standards e música pop. Mais de 5.000 apresentações em nove países. Shows, repertório e contratação.">
 <meta name="author" content="Paulo José Benevides">
 <meta name="theme-color" content="#0B0B0D">
@@ -167,6 +167,9 @@ section{padding:110px 0;position:relative}
 
 /* Agenda */
 .dates{margin-top:48px;border-top:1px solid var(--linha)}
+.agenda-vazia{margin-top:48px;border-top:1px solid var(--linha);border-bottom:1px solid var(--linha);padding:68px 28px;text-align:center}
+.agenda-vazia p{font-family:var(--serif);font-size:1.3rem;color:rgba(244,241,234,.80);max-width:46ch;margin:14px auto 34px;line-height:1.6}
+@media (max-width:560px){.agenda-vazia{padding:48px 18px}.agenda-vazia p{font-size:1.12rem}}
 .date{display:grid;grid-template-columns:130px 1fr auto;gap:28px;align-items:center;padding:26px 4px;border-bottom:1px solid var(--linha);transition:background .3s,padding-left .3s}
 .date:hover{background:rgba(198,166,100,.05);padding-left:16px}
 .date .d{font-family:var(--serif);font-size:1.05rem;color:var(--ouro);letter-spacing:.05em}
@@ -504,29 +507,14 @@ footer{background:#07070A;padding:70px 0 34px;border-top:1px solid var(--linha)}
       </p>
     </div>
 
-    <div class="dates rv">
-      <div class="date">
-        <div class="d">18 SET 2026<small>Sexta · 20h</small></div>
-        <div class="v">Teatro RioMar<small>Fortaleza · CE</small></div>
-        <span class="chip" data-pt="A confirmar" data-en="To confirm">A confirmar</span>
-      </div>
-      <div class="date">
-        <div class="d">24 OUT 2026<small>Sábado · 21h</small></div>
-        <div class="v">Teatro José de Alencar<small>Fortaleza · CE</small></div>
-        <span class="chip" data-pt="A confirmar" data-en="To confirm">A confirmar</span>
-      </div>
-      <div class="date">
-        <div class="d">12 DEZ 2026<small>Sábado · 20h</small></div>
-        <div class="v"><span data-pt="Especial de Natal — com orquestra" data-en="Christmas Special — with orchestra">Especial de Natal — com orquestra</span><small>Fortaleza · CE</small></div>
-        <span class="chip" data-pt="A confirmar" data-en="To confirm">A confirmar</span>
-      </div>
+    <div class="agenda-vazia rv">
+      <span class="eyebrow" data-pt="Temporada 2026" data-en="2026 season">Temporada 2026</span>
+      <p data-pt="As próximas datas serão anunciadas aqui. Para levar o show à sua cidade ou ao seu evento, fale com a produção."
+         data-en="Upcoming dates will be announced here. To bring the show to your city or event, get in touch with management.">
+        As próximas datas serão anunciadas aqui. Para levar o show à sua cidade ou ao seu evento, fale com a produção.
+      </p>
+      <a href="#contato" class="btn btn-solid" data-pt="Contratar show" data-en="Book a show">Contratar show</a>
     </div>
-
-    <p style="margin-top:26px;font-size:.74rem;letter-spacing:.1em;color:var(--cinza);font-style:italic;font-family:var(--serif);font-size:1.05rem"
-       data-pt="Estas datas são apenas um exemplo de como a agenda vai aparecer. Paulo, é só passar os shows reais."
-       data-en="These dates are only an example of how the tour list will look.">
-      Estas datas são apenas um exemplo de como a agenda vai aparecer. Paulo, é só passar os shows reais.
-    </p>
   </div>
 </section>
 
@@ -711,19 +699,8 @@ footer{background:#07070A;padding:70px 0 34px;border-top:1px solid var(--linha)}
 
 <div id="lb"><b>&times;</b><img alt=""></div>
 
-<!-- SELO DE PRÉVIA -->
-<div id="selo">
-  <span class="selo-dot"></span>
-  <div>
-    <b data-pt="Prévia para aprovação" data-en="Preview for approval">Prévia para aprovação</b>
-    <i data-pt="Só as datas da agenda ainda são exemplo. O resto já é real."
-       data-en="Only the tour dates are still placeholders. Everything else is real.">Só as datas da agenda ainda são exemplo. O resto já é real.</i>
-  </div>
-  <button id="selo-x" aria-label="Fechar">&times;</button>
-</div>
-
 <script>
-/* PRÉVIA — versão para aprovação. Só a agenda ainda é exemplo. */
+/* Site oficial — Paulo José Benevides */
 const WHATS = '5511997588024';   // WhatsApp principal do escritório
 document.querySelectorAll('[data-spotify],[data-apple]').forEach(a=>{
   a.removeAttribute('href'); a.style.opacity='.45'; a.style.cursor='default';
@@ -800,11 +777,6 @@ document.getElementById('news').addEventListener('submit',e=>{
   e.target.reset();
 });
 
-// selo de prévia
-const selo=document.getElementById('selo');
-const someSelo=()=>{ if(!selo||!selo.isConnected) return; selo.style.transition='opacity .8s ease,transform .8s ease'; selo.style.opacity='0'; selo.style.transform='translateY(14px)'; setTimeout(()=>selo.remove(),900); };
-document.getElementById('selo-x').addEventListener('click',someSelo);
-setTimeout(someSelo,8000);
 </script>
 </body>
 </html>

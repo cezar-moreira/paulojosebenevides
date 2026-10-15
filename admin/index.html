@@ -292,14 +292,17 @@ $('#form-nova').onsubmit = async ev => {
   const { error } = await sb.auth.updateUser({ password: $('#n1').value });
   b.disabled = false; b.textContent = 'Salvar senha';
   if(error) return avisar(traduzErro(error));
+  tipoLink = null;
   avisar('Senha criada. Entrando...', 'ok');
+  const { data: { session } } = await sb.auth.getSession();
+  if(session) await abrirPainel(session);
 };
 
 $('#sair').onclick = async () => { await sb.auth.signOut(); location.hash=''; location.reload(); };
 
 /* link de convite / recuperação chega no # da URL */
 const hash = new URLSearchParams(location.hash.slice(1));
-const tipoLink = hash.get('type');
+let tipoLink = hash.get('type');
 if(hash.get('error_description')) avisar(decodeURIComponent(hash.get('error_description').replace(/\+/g,' ')));
 
 sb.auth.onAuthStateChange(async (evento, sessao) => {

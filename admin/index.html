@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Painel · Paulo José Benevides</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --preto:#0B0B0D; --preto-2:#111114; --preto-3:#17171B;
+  --ouro:#C6A664; --ouro-claro:#E3CB96;
+  --branco:#F4F1EA; --cinza:#9A968E; --linha:rgba(198,166,100,.22);
+  --erro:#E06C5A; --ok:#6FBF8B;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--preto);color:var(--branco);font-family:var(--sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--ouro)}
+.oculto{display:none !important}
+
+/* ---------- ENTRADA ---------- */
+.entrada{min-height:100svh;display:grid;place-items:center;padding:28px}
+.cartao{width:100%;max-width:400px}
+.marca{font-family:var(--serif);font-size:1.5rem;letter-spacing:.12em;text-align:center;margin-bottom:6px}
+.marca b{font-weight:400;color:var(--ouro)}
+.sub{text-align:center;color:var(--cinza);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;margin-bottom:38px}
+.campo{margin-bottom:18px}
+.campo label{display:block;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cinza);margin-bottom:8px}
+input,select,textarea{width:100%;background:var(--preto-2);border:1px solid var(--linha);color:var(--branco);
+  font-family:var(--sans);font-size:.95rem;padding:13px 14px;border-radius:2px;transition:border-color .2s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--ouro)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:14px 22px;
+  border:1px solid var(--ouro);background:var(--ouro);color:var(--preto);font-family:var(--sans);
+  font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;
+  border-radius:2px;transition:all .25s}
+.btn:hover:not(:disabled){background:var(--ouro-claro);border-color:var(--ouro-claro)}
+.btn:disabled{opacity:.5;cursor:default}
+.btn-vazio{background:transparent;color:var(--ouro)}
+.btn-vazio:hover:not(:disabled){background:rgba(198,166,100,.1)}
+.link{display:block;text-align:center;margin-top:20px;font-size:.78rem;color:var(--cinza);
+  background:none;border:none;cursor:pointer;font-family:var(--sans);width:100%;text-decoration:underline}
+.link:hover{color:var(--ouro)}
+.aviso{padding:12px 14px;border-radius:2px;font-size:.85rem;margin-bottom:18px;line-height:1.45}
+.aviso-erro{background:rgba(224,108,90,.12);border:1px solid rgba(224,108,90,.4);color:#F0A99B}
+.aviso-ok{background:rgba(111,191,139,.12);border:1px solid rgba(111,191,139,.4);color:#9FD8B5}
+
+/* ---------- PAINEL ---------- */
+.topo{position:sticky;top:0;z-index:10;background:rgba(11,11,13,.95);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--linha);padding:14px 22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.topo .marca{font-size:1rem;margin:0;text-align:left;flex:1 1 auto}
+.quem{font-size:.72rem;color:var(--cinza)}
+.quem b{color:var(--ouro);font-weight:500}
+.sair{background:none;border:1px solid var(--linha);color:var(--cinza);font-family:var(--sans);
+  font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;padding:8px 14px;cursor:pointer;border-radius:2px}
+.sair:hover{border-color:var(--ouro);color:var(--ouro)}
+.abas{display:flex;gap:4px;padding:0 22px;border-bottom:1px solid var(--linha);overflow-x:auto}
+.aba{background:none;border:none;border-bottom:2px solid transparent;color:var(--cinza);font-family:var(--sans);
+  font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;padding:16px 16px;cursor:pointer;white-space:nowrap}
+.aba:hover{color:var(--branco)}
+.aba.ativa{color:var(--ouro);border-bottom-color:var(--ouro)}
+.area{max-width:980px;margin:0 auto;padding:34px 22px 80px}
+h2{font-family:var(--serif);font-size:1.9rem;font-weight:400;margin-bottom:6px}
+.legenda{color:var(--cinza);font-size:.88rem;margin-bottom:28px}
+.lista{border-top:1px solid var(--linha)}
+.item{display:grid;grid-template-columns:120px 1fr auto;gap:18px;align-items:center;
+  padding:16px 4px;border-bottom:1px solid var(--linha)}
+.item .d{font-family:var(--serif);color:var(--ouro);font-size:1.02rem}
+.item .d small{display:block;font-family:var(--sans);font-size:.6rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--cinza);margin-top:3px}
+.item .v{font-family:var(--serif);font-size:1.18rem}
+.item .v small{display:block;font-family:var(--sans);font-size:.66rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--cinza);margin-top:4px}
+.acoes{display:flex;gap:8px}
+.mini{background:none;border:1px solid var(--linha);color:var(--cinza);font-family:var(--sans);
+  font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;padding:7px 12px;cursor:pointer;border-radius:2px}
+.mini:hover{border-color:var(--ouro);color:var(--ouro)}
+.mini.perigo:hover{border-color:var(--erro);color:var(--erro)}
+.vazio{text-align:center;padding:60px 20px;color:var(--cinza);font-family:var(--serif);font-size:1.15rem}
+.form-linha{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.painel-form{background:var(--preto-2);border:1px solid var(--linha);padding:24px;border-radius:3px;margin-bottom:34px}
+.painel-form h3{font-family:var(--serif);font-size:1.3rem;font-weight:400;margin-bottom:18px}
+.botoes{display:flex;gap:12px;margin-top:20px}
+.botoes .btn{width:auto;padding:12px 26px}
+.chip{display:inline-block;font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;
+  border:1px solid var(--linha);color:var(--cinza);padding:5px 10px;border-radius:2px}
+.vid{display:grid;grid-template-columns:120px 1fr auto;gap:18px;align-items:center;padding:14px 4px;border-bottom:1px solid var(--linha)}
+.vid img{width:120px;aspect-ratio:16/9;object-fit:cover;border-radius:2px;background:var(--preto-3)}
+@media(max-width:640px){
+  .item,.vid{grid-template-columns:1fr;gap:10px}
+  .acoes{justify-content:flex-start}
+  .vid img{width:100%;max-width:220px}
+  .area{padding:26px 18px 70px}
+  h2{font-size:1.6rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ======== ENTRADA ======== -->
+<div id="tela-entrada" class="entrada">
+  <div class="cartao">
+    <div class="marca">PAULO JOSÉ <b>BENEVIDES</b></div>
+    <div class="sub">Painel de gestão</div>
+
+    <div id="aviso" class="aviso oculto"></div>
+
+    <!-- login -->
+    <form id="form-login">
+      <div class="campo">
+        <label for="e">E-mail</label>
+        <input id="e" type="email" autocomplete="username" required>
+      </div>
+      <div class="campo">
+        <label for="s">Senha</label>
+        <input id="s" type="password" autocomplete="current-password" required>
+      </div>
+      <button class="btn" id="btn-entrar" type="submit">Entrar</button>
+      <button class="link" type="button" id="ir-esqueci">Esqueci minha senha</button>
+    </form>
+
+    <!-- esqueci -->
+    <form id="form-esqueci" class="oculto">
+      <p class="legenda" style="margin-bottom:22px">Informe seu e-mail. Enviamos um link para você criar uma senha nova.</p>
+      <div class="campo">
+        <label for="e2">E-mail</label>
+        <input id="e2" type="email" autocomplete="username" required>
+      </div>
+      <button class="btn" id="btn-enviar" type="submit">Enviar link</button>
+      <button class="link" type="button" id="voltar-login">Voltar</button>
+    </form>
+
+    <!-- definir senha (convite / recuperação) -->
+    <form id="form-nova" class="oculto">
+      <p class="legenda" style="margin-bottom:22px">Crie a senha que você vai usar para entrar. Mínimo de 8 caracteres.</p>
+      <div class="campo">
+        <label for="n1">Nova senha</label>
+        <input id="n1" type="password" autocomplete="new-password" minlength="8" required>
+      </div>
+      <div class="campo">
+        <label for="n2">Repita a senha</label>
+        <input id="n2" type="password" autocomplete="new-password" minlength="8" required>
+      </div>
+      <button class="btn" id="btn-salvar-senha" type="submit">Salvar senha</button>
+    </form>
+  </div>
+</div>
+
+<!-- ======== PAINEL ======== -->
+<div id="tela-painel" class="oculto">
+  <div class="topo">
+    <div class="marca">PAULO JOSÉ <b>BENEVIDES</b></div>
+    <div class="quem">Conectado como <b id="meu-email"></b> · <span id="meu-papel" class="chip"></span></div>
+    <button class="sair" id="sair">Sair</button>
+  </div>
+
+  <div class="abas">
+    <button class="aba ativa" data-painel="agenda">Agenda</button>
+    <button class="aba" data-painel="videos">Vídeos</button>
+    <button class="aba" data-painel="visitas">Visitas</button>
+  </div>
+
+  <!-- AGENDA -->
+  <section id="p-agenda" class="area">
+    <h2>Agenda de shows</h2>
+    <p class="legenda">O que você publicar aqui aparece no site, na ordem das datas.</p>
+
+    <div class="painel-form">
+      <h3 id="titulo-show">Novo show</h3>
+      <input type="hidden" id="show-id">
+      <div class="form-linha">
+        <div class="campo"><label for="show-data">Data</label><input id="show-data" type="date" required></div>
+        <div class="campo"><label for="show-hora">Horário</label><input id="show-hora" type="text" placeholder="20h"></div>
+        <div class="campo"><label for="show-status">Situação</label>
+          <select id="show-status">
+            <option value="confirmado">Confirmado</option>
+            <option value="a confirmar">A confirmar</option>
+            <option value="esgotado">Esgotado</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-linha">
+        <div class="campo"><label for="show-local">Local</label><input id="show-local" type="text" placeholder="Teatro RioMar" required></div>
+        <div class="campo"><label for="show-cidade">Cidade</label><input id="show-cidade" type="text" placeholder="Fortaleza" required></div>
+        <div class="campo"><label for="show-uf">Estado</label><input id="show-uf" type="text" placeholder="CE" maxlength="2"></div>
+      </div>
+      <div class="campo"><label for="show-link">Link de ingressos (opcional)</label><input id="show-link" type="url" placeholder="https://"></div>
+      <div class="botoes">
+        <button class="btn" id="salvar-show">Salvar show</button>
+        <button class="btn btn-vazio oculto" id="cancelar-show" type="button">Cancelar</button>
+      </div>
+    </div>
+
+    <div id="lista-shows" class="lista"></div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section id="p-videos" class="area oculto">
+    <h2>Vídeos</h2>
+    <p class="legenda">Cole o endereço do vídeo no YouTube. O resto eu resolvo.</p>
+
+    <div class="painel-form">
+      <h3>Novo vídeo</h3>
+      <div class="campo"><label for="vid-url">Endereço do YouTube</label>
+        <input id="vid-url" type="text" placeholder="https://www.youtube.com/watch?v=..."></div>
+      <div class="campo"><label for="vid-titulo">Título (opcional)</label>
+        <input id="vid-titulo" type="text" placeholder="Hello Detroit"></div>
+      <div class="botoes"><button class="btn" id="salvar-video">Adicionar vídeo</button></div>
+    </div>
+
+    <div id="lista-videos" class="lista"></div>
+  </section>
+
+  <!-- VISITAS -->
+  <section id="p-visitas" class="area oculto">
+    <h2>Visitas</h2>
+    <p class="legenda">Quantas pessoas abriram o site, e de onde.</p>
+    <div class="vazio">A coleta de visitas ainda está sendo ligada.<br>Os gráficos aparecem aqui assim que houver dados.</div>
+  </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
+<script>
+const URL_SB  = 'https://zvjnhxiotbshpamzlfaq.supabase.co';
+const CHAVE   = 'sb_publishable_t3gjq01FFwNPkKFhIeqKkA_uyiVIhss';
+const sb = window.supabase.createClient(URL_SB, CHAVE);
+
+const $ = s => document.querySelector(s);
+const mostrar = (el,v=true) => el.classList.toggle('oculto', !v);
+
+function avisar(txt, tipo='erro'){
+  const a = $('#aviso');
+  a.textContent = txt;
+  a.className = 'aviso aviso-' + tipo;
+  mostrar(a, !!txt);
+}
+
+function traduzErro(e){
+  const m = (e && e.message || '').toLowerCase();
+  if(m.includes('invalid login')) return 'E-mail ou senha incorretos.';
+  if(m.includes('email not confirmed')) return 'E-mail ainda não confirmado. Veja o link que enviamos.';
+  if(m.includes('rate limit') || m.includes('too many')) return 'Muitas tentativas. Espere alguns minutos.';
+  if(m.includes('expired') || m.includes('invalid')) return 'Esse link expirou. Peça um novo em "Esqueci minha senha".';
+  if(m.includes('should be at least')) return 'A senha precisa de pelo menos 8 caracteres.';
+  if(m.includes('failed to fetch')) return 'Sem conexão com o servidor. Verifique a internet.';
+  return e && e.message ? e.message : 'Algo deu errado. Tente de novo.';
+}
+
+/* ---------- troca de telas ---------- */
+function telaLogin(qual){
+  mostrar($('#form-login'),   qual==='login');
+  mostrar($('#form-esqueci'), qual==='esqueci');
+  mostrar($('#form-nova'),    qual==='nova');
+}
+
+$('#ir-esqueci').onclick  = () => { avisar(''); telaLogin('esqueci'); };
+$('#voltar-login').onclick = () => { avisar(''); telaLogin('login'); };
+
+/* ---------- autenticação ---------- */
+let euPapel = 'editor';
+
+$('#form-login').onsubmit = async ev => {
+  ev.preventDefault();
+  avisar('');
+  const b = $('#btn-entrar'); b.disabled = true; b.textContent = 'Entrando...';
+  const { error } = await sb.auth.signInWithPassword({ email: $('#e').value.trim(), password: $('#s').value });
+  b.disabled = false; b.textContent = 'Entrar';
+  if(error) avisar(traduzErro(error));
+};
+
+$('#form-esqueci').onsubmit = async ev => {
+  ev.preventDefault();
+  avisar('');
+  const b = $('#btn-enviar'); b.disabled = true; b.textContent = 'Enviando...';
+  const { error } = await sb.auth.resetPasswordForEmail($('#e2').value.trim(), {
+    redirectTo: location.origin + '/admin/'
+  });
+  b.disabled = false; b.textContent = 'Enviar link';
+  if(error) return avisar(traduzErro(error));
+  avisar('Link enviado. Procure o e-mail da Supabase — veja também o lixo eletrônico.', 'ok');
+  telaLogin('login');
+};
+
+$('#form-nova').onsubmit = async ev => {
+  ev.preventDefault();
+  avisar('');
+  if($('#n1').value !== $('#n2').value) return avisar('As duas senhas não são iguais.');
+  const b = $('#btn-salvar-senha'); b.disabled = true; b.textContent = 'Salvando...';
+  const { error } = await sb.auth.updateUser({ password: $('#n1').value });
+  b.disabled = false; b.textContent = 'Salvar senha';
+  if(error) return avisar(traduzErro(error));
+  avisar('Senha criada. Entrando...', 'ok');
+};
+
+$('#sair').onclick = async () => { await sb.auth.signOut(); location.hash=''; location.reload(); };
+
+/* link de convite / recuperação chega no # da URL */
+const hash = new URLSearchParams(location.hash.slice(1));
+const tipoLink = hash.get('type');
+if(hash.get('error_description')) avisar(decodeURIComponent(hash.get('error_description').replace(/\+/g,' ')));
+
+sb.auth.onAuthStateChange(async (evento, sessao) => {
+  if((evento === 'PASSWORD_RECOVERY') || (sessao && (tipoLink === 'invite' || tipoLink === 'recovery'))){
+    mostrar($('#tela-entrada'), true); mostrar($('#tela-painel'), false);
+    telaLogin('nova');
+    return;
+  }
+  if(sessao){ await abrirPainel(sessao); }
+  else { mostrar($('#tela-entrada'), true); mostrar($('#tela-painel'), false); telaLogin('login'); }
+});
+
+async function abrirPainel(sessao){
+  history.replaceState(null,'',location.pathname);
+  $('#meu-email').textContent = sessao.user.email;
+  const { data: perfil } = await sb.from('perfis').select('papel').eq('id', sessao.user.id).maybeSingle();
+  euPapel = perfil ? perfil.papel : 'editor';
+  $('#meu-papel').textContent = euPapel === 'admin' ? 'Administrador' : 'Editor';
+  mostrar($('#tela-entrada'), false);
+  mostrar($('#tela-painel'), true);
+  await carregarShows();
+  await carregarVideos();
+}
+
+/* ---------- abas ---------- */
+document.querySelectorAll('.aba').forEach(a => a.onclick = () => {
+  document.querySelectorAll('.aba').forEach(x => x.classList.toggle('ativa', x === a));
+  ['agenda','videos','visitas'].forEach(p => mostrar($('#p-'+p), p === a.dataset.painel));
+});
+
+/* ---------- agenda ---------- */
+const MES = ['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
+function dataBonita(iso){
+  const [a,m,d] = iso.split('-');
+  return d + ' ' + MES[+m-1] + ' ' + a;
+}
+
+async function carregarShows(){
+  const { data, error } = await sb.from('shows').select('*').order('data');
+  const alvo = $('#lista-shows');
+  if(error || !data){ alvo.innerHTML = '<div class="vazio">Não consegui carregar a agenda.</div>'; return; }
+  if(!data.length){ alvo.innerHTML = '<div class="vazio">Nenhum show cadastrado ainda.</div>'; return; }
+  alvo.innerHTML = data.map(s => `
+    <div class="item">
+      <div class="d">${dataBonita(s.data)}<small>${s.hora || '—'}</small></div>
+      <div class="v">${escapar(s.local)}<small>${escapar(s.cidade)}${s.uf ? ' · ' + escapar(s.uf) : ''} · ${escapar(s.status)}</small></div>
+      <div class="acoes">
+        <button class="mini" data-editar="${s.id}">Editar</button>
+        <button class="mini perigo" data-apagar="${s.id}">Apagar</button>
+      </div>
+    </div>`).join('');
+  alvo.querySelectorAll('[data-editar]').forEach(b => b.onclick = () => editarShow(data.find(x => x.id === b.dataset.editar)));
+  alvo.querySelectorAll('[data-apagar]').forEach(b => b.onclick = () => apagarShow(b.dataset.apagar));
+}
+
+function escapar(t){ return String(t==null?'':t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+function editarShow(s){
+  $('#show-id').value = s.id;
+  $('#show-data').value = s.data;
+  $('#show-hora').value = s.hora || '';
+  $('#show-local').value = s.local;
+  $('#show-cidade').value = s.cidade;
+  $('#show-uf').value = s.uf || '';
+  $('#show-status').value = s.status;
+  $('#show-link').value = s.link_ingressos || '';
+  $('#titulo-show').textContent = 'Editando show';
+  mostrar($('#cancelar-show'), true);
+  $('#p-agenda').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function limparShow(){
+  ['show-id','show-data','show-hora','show-local','show-cidade','show-uf','show-link'].forEach(i => $('#'+i).value = '');
+  $('#show-status').value = 'confirmado';
+  $('#titulo-show').textContent = 'Novo show';
+  mostrar($('#cancelar-show'), false);
+}
+$('#cancelar-show').onclick = limparShow;
+
+$('#salvar-show').onclick = async ev => {
+  ev.preventDefault();
+  if(!$('#show-data').value || !$('#show-local').value || !$('#show-cidade').value){
+    return alert('Preencha pelo menos data, local e cidade.');
+  }
+  const linha = {
+    data:   $('#show-data').value,
+    hora:   $('#show-hora').value || null,
+    local:  $('#show-local').value,
+    cidade: $('#show-cidade').value,
+    uf:     $('#show-uf').value.toUpperCase() || null,
+    status: $('#show-status').value,
+    link_ingressos: $('#show-link').value || null
+  };
+  const id = $('#show-id').value;
+  const b = $('#salvar-show'); b.disabled = true; b.textContent = 'Salvando...';
+  const { error } = id
+    ? await sb.from('shows').update(linha).eq('id', id)
+    : await sb.from('shows').insert(linha);
+  b.disabled = false; b.textContent = 'Salvar show';
+  if(error) return alert('Não consegui salvar: ' + error.message);
+  limparShow();
+  carregarShows();
+};
+
+async function apagarShow(id){
+  if(!confirm('Apagar este show? Não dá para desfazer.')) return;
+  const { error } = await sb.from('shows').delete().eq('id', id);
+  if(error) return alert('Não consegui apagar: ' + error.message);
+  carregarShows();
+}
+
+/* ---------- vídeos ---------- */
+function idDoYoutube(url){
+  const m = String(url).match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([A-Za-z0-9_-]{11})/);
+  return m ? m[1] : (/^[A-Za-z0-9_-]{11}$/.test(url.trim()) ? url.trim() : null);
+}
+
+async function carregarVideos(){
+  const { data, error } = await sb.from('videos').select('*').order('ordem').order('criado_em');
+  const alvo = $('#lista-videos');
+  if(error || !data){ alvo.innerHTML = '<div class="vazio">Não consegui carregar os vídeos.</div>'; return; }
+  if(!data.length){ alvo.innerHTML = '<div class="vazio">Nenhum vídeo cadastrado ainda.</div>'; return; }
+  alvo.innerHTML = data.map(v => `
+    <div class="vid">
+      <img src="https://i.ytimg.com/vi/${v.youtube_id}/mqdefault.jpg" alt="">
+      <div class="v">${escapar(v.titulo || '(sem título)')}<small>${v.youtube_id}</small></div>
+      <div class="acoes"><button class="mini perigo" data-apagarv="${v.id}">Apagar</button></div>
+    </div>`).join('');
+  alvo.querySelectorAll('[data-apagarv]').forEach(b => b.onclick = async () => {
+    if(!confirm('Apagar este vídeo?')) return;
+    const { error } = await sb.from('videos').delete().eq('id', b.dataset.apagarv);
+    if(error) return alert('Não consegui apagar: ' + error.message);
+    carregarVideos();
+  });
+}
+
+$('#salvar-video').onclick = async ev => {
+  ev.preventDefault();
+  const yt = idDoYoutube($('#vid-url').value);
+  if(!yt) return alert('Não reconheci esse endereço do YouTube. Cole o link completo do vídeo.');
+  const b = $('#salvar-video'); b.disabled = true; b.textContent = 'Adicionando...';
+  const { error } = await sb.from('videos').insert({ youtube_id: yt, titulo: $('#vid-titulo').value || '' });
+  b.disabled = false; b.textContent = 'Adicionar vídeo';
+  if(error) return alert(error.message.includes('duplicate') ? 'Esse vídeo já está na lista.' : 'Não consegui adicionar: ' + error.message);
+  $('#vid-url').value = ''; $('#vid-titulo').value = '';
+  carregarVideos();
+};
+</script>
+</body>
+</html>

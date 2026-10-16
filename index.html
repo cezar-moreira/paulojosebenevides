@@ -752,5 +752,27 @@ document.getElementById('news').addEventListener('submit',e=>{
 });
 
 </script>
+
+<!-- contagem de visitas: sem cookie, sem IP guardado -->
+<script>
+(function(){
+  try{ if(sessionStorage.getItem('pjb_visita')) return; sessionStorage.setItem('pjb_visita','1'); }catch(e){}
+  var U='https://zvjnhxiotbshpamzlfaq.supabase.co/rest/v1/visitas';
+  var K='sb_publishable_t3gjq01FFwNPkKFhIeqKkA_uyiVIhss';
+  function registra(pais,uf){
+    try{
+      fetch(U,{method:'POST',headers:{apikey:K,Authorization:'Bearer '+K,
+        'Content-Type':'application/json',Prefer:'return=minimal'},
+        body:JSON.stringify({pais:pais||null,uf:uf||null,caminho:location.pathname,
+          referencia:document.referrer?document.referrer.slice(0,200):null})}).catch(function(){});
+    }catch(e){}
+  }
+  var t=setTimeout(function(){registra(null,null)},3500);
+  fetch('https://ipwho.is/?fields=success,country,region')
+    .then(function(r){return r.json()})
+    .then(function(d){clearTimeout(t);registra(d&&d.success?d.country:null,d&&d.success?d.region:null)})
+    .catch(function(){clearTimeout(t);registra(null,null)});
+})();
+</script>
 </body>
 </html>

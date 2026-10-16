@@ -516,6 +516,13 @@ async function tituloDoYoutube(id){
 /* ---------- visitas ---------- */
 const OURO = '#C6A664', SUPER = '#111114', TINTA = '#9A968E', LINHA = 'rgba(198,166,100,.22)';
 const num = n => n.toLocaleString('pt-BR');
+const PAIS_PT = {Brazil:'Brasil','United States':'Estados Unidos',Portugal:'Portugal',Italy:'Itália',
+  Israel:'Israel',Mexico:'México',Spain:'Espanha',Austria:'Áustria',France:'França',Germany:'Alemanha',
+  'United Kingdom':'Reino Unido',Canada:'Canadá',Argentina:'Argentina',Chile:'Chile',Switzerland:'Suíça',
+  Japan:'Japão',Netherlands:'Países Baixos',Belgium:'Bélgica',Ireland:'Irlanda',Australia:'Austrália',
+  Colombia:'Colômbia',Uruguay:'Uruguai',Paraguay:'Paraguai',Peru:'Peru',Angola:'Angola',
+  'Cape Verde':'Cabo Verde',Mozambique:'Moçambique','United Arab Emirates':'Emirados Árabes Unidos'};
+const ptPais = n => PAIS_PT[n] || n;
 
 async function carregarVisitas(){
   const alvo = $('#visitas-conteudo');
@@ -545,7 +552,7 @@ async function carregarVisitas(){
     data.forEach(v => { const x = v[campo]; if(x) m[x] = (m[x]||0) + 1; });
     return Object.entries(m).sort((a,b) => b[1]-a[1]);
   };
-  const paises = conta('pais'), estados = conta('uf');
+  const paises = conta('pais').map(([n,v]) => [ptPais(n), v]), estados = conta('uf');
 
   alvo.innerHTML = `
     <div class="heroi">${num(data.length)}</div>

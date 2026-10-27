@@ -105,6 +105,14 @@ h2{font-family:var(--serif);font-size:1.9rem;font-weight:400;margin-bottom:6px}
 .vid-info .m{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza)}
 .vid-info a{font-size:.72rem;display:inline-block;margin-top:8px}
 
+
+.tabela{width:100%;border-collapse:collapse;font-size:.82rem}
+.tabela th{text-align:left;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cinza);
+  font-weight:500;padding:0 14px 12px 0;border-bottom:1px solid var(--linha);white-space:nowrap}
+.tabela td{padding:12px 14px 12px 0;border-bottom:1px solid var(--linha);vertical-align:top}
+.tabela td.ip{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.78rem;color:var(--ouro)}
+.rolar{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.nota{font-size:.72rem;color:var(--cinza);margin-top:16px;line-height:1.55}
 /* visitas */
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:34px}
 .kpi{background:var(--preto-2);border:1px solid var(--linha);border-radius:3px;padding:20px}
@@ -605,6 +613,17 @@ async function carregarVisitas(){
     <div class="duplo">
       <div class="grafico env"><h3>Por cidade</h3><p class="leg">As dez cidades com mais acessos</p><div id="g-cidade"></div></div>
       <div class="grafico env"><h3>Páginas abertas</h3><p class="leg">Por onde entraram no site</p><div id="g-pagina"></div></div>
+    </div>
+    <div class="grafico">
+      <h3>Últimos acessos</h3>
+      <p class="leg">Os 50 mais recentes, do mais novo para o mais antigo</p>
+      <div class="rolar"><table class="tabela">
+        <thead><tr><th>Quando</th><th>Endereço IP</th><th>Cidade</th><th>Estado</th><th>País</th><th>Veio de</th></tr></thead>
+        <tbody id="corpo-acessos"></tbody>
+      </table></div>
+      <p class="nota">O IP identifica o provedor de internet e a região aproximada — não identifica a pessoa.
+      Celulares trocam de IP o tempo todo e vários aparelhos dividem o mesmo número.
+      Esses registros são apagados automaticamente depois de 90 dias.</p>
     </div>`;
 
   desenharLinha($('#g-linha'), Object.entries(porDia));
@@ -613,6 +632,23 @@ async function carregarVisitas(){
   desenharBarras($('#g-uf'),     estados.slice(0,6), 'estado');
   desenharBarras($('#g-cidade'), cidades.slice(0,10), 'cidade');
   desenharBarras($('#g-pagina'), paginas.slice(0,6), 'página');
+
+  const quando = iso => {
+    const d = new Date(iso);
+    return d.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'}) + ' ' +
+           d.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+  };
+  $('#corpo-acessos').innerHTML = data.slice(0,50).map(v => `
+    <tr>
+      <td>${quando(v.criado_em)}</td>
+      <td class="ip">${escapar(v.ip || '—')}</td>
+      <td>${escapar(v.cidade || '—')}</td>
+      <td>${escapar(v.uf || '—')}</td>
+      <td>${escapar(ptPais(v.pais) || '—')}</td>
+      <td>${escapar(origemDe(v.referencia))}</td>
+    </tr>`).join('');
+
+  sb.rpc('limpar_visitas_antigas').then(()=>{}, ()=>{});
 }
 
 function dica(env){

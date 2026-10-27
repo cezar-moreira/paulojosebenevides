@@ -667,6 +667,9 @@ footer{background:#07070A;padding:70px 0 34px;border-top:1px solid var(--linha)}
     <div class="foot-bot">
       <p>© <span id="ano">2026</span> Paulo José Benevides. <span data-pt="Todos os direitos reservados." data-en="All rights reserved.">Todos os direitos reservados.</span></p>
       <p><span data-pt="Direção musical" data-en="Musical direction">Direção musical</span>: Cezar Moreira · <a href="#top" data-pt="Voltar ao topo" data-en="Back to top">Voltar ao topo</a></p>
+      <p style="margin-top:10px;font-size:.72rem;color:var(--cinza);line-height:1.5;max-width:70ch"
+         data-pt="Privacidade: este site registra acessos (data, página, origem, localização aproximada e endereço IP) apenas para estatísticas próprias. Os dados não são compartilhados e são apagados automaticamente após 90 dias. Dúvidas ou pedido de exclusão: escritorio@paulobenevidesoficial.com"
+         data-en="Privacy: this site logs visits (date, page, referrer, approximate location and IP address) for its own statistics only. Data is never shared and is deleted automatically after 90 days. Questions or deletion requests: escritorio@paulobenevidesoficial.com">Privacidade: este site registra acessos (data, página, origem, localização aproximada e endereço IP) apenas para estatísticas próprias. Os dados não são compartilhados e são apagados automaticamente após 90 dias. Dúvidas ou pedido de exclusão: escritorio@paulobenevidesoficial.com</p>
     </div>
   </div>
 </footer>
@@ -759,19 +762,19 @@ document.getElementById('news').addEventListener('submit',e=>{
   try{ if(sessionStorage.getItem('pjb_visita')) return; sessionStorage.setItem('pjb_visita','1'); }catch(e){}
   var U='https://zvjnhxiotbshpamzlfaq.supabase.co/rest/v1/visitas';
   var K='sb_publishable_t3gjq01FFwNPkKFhIeqKkA_uyiVIhss';
-  function registra(pais,uf,cidade){
+  function registra(pais,uf,cidade,ip){
     try{
       fetch(U,{method:'POST',headers:{apikey:K,Authorization:'Bearer '+K,
         'Content-Type':'application/json',Prefer:'return=minimal'},
-        body:JSON.stringify({pais:pais||null,uf:uf||null,cidade:cidade||null,caminho:location.pathname,
+        body:JSON.stringify({pais:pais||null,uf:uf||null,cidade:cidade||null,ip:ip||null,caminho:location.pathname,
           referencia:document.referrer?document.referrer.slice(0,200):null})}).catch(function(){});
     }catch(e){}
   }
-  var t=setTimeout(function(){registra(null,null,null)},3500);
-  fetch('https://ipwho.is/?fields=success,country,region,city')
+  var t=setTimeout(function(){registra(null,null,null,null)},3500);
+  fetch('https://ipwho.is/?fields=success,country,region,city,ip')
     .then(function(r){return r.json()})
-    .then(function(d){clearTimeout(t);registra(d&&d.success?d.country:null,d&&d.success?d.region:null,d&&d.success?d.city:null)})
-    .catch(function(){clearTimeout(t);registra(null,null,null)});
+    .then(function(d){clearTimeout(t);registra(d&&d.success?d.country:null,d&&d.success?d.region:null,d&&d.success?d.city:null,d&&d.success?d.ip:null)})
+    .catch(function(){clearTimeout(t);registra(null,null,null,null)});
 })();
 </script>
 </body>

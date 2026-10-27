@@ -524,11 +524,28 @@ const PAIS_PT = {Brazil:'Brasil','United States':'Estados Unidos',Portugal:'Port
   'Cape Verde':'Cabo Verde',Mozambique:'Moçambique','United Arab Emirates':'Emirados Árabes Unidos'};
 const ptPais = n => PAIS_PT[n] || n;
 
+const ORIGENS = [
+  [/instagram/i,'Instagram'], [/google/i,'Google'], [/facebook|fb\./i,'Facebook'],
+  [/youtube|youtu\.be/i,'YouTube'], [/whatsapp|wa\.me/i,'WhatsApp'],
+  [/bing/i,'Bing'], [/linkedin/i,'LinkedIn'], [/t\.co|twitter|x\.com/i,'X / Twitter'],
+  [/paulojosebenevides/i,'Dentro do próprio site']
+];
+function origemDe(ref){
+  if(!ref) return 'Acesso direto';
+  for(const [re,nome] of ORIGENS) if(re.test(ref)) return nome;
+  try{ return new URL(ref).hostname.replace(/^www\./,''); }catch(e){ return 'Outro'; }
+}
+function paginaDe(c){
+  if(!c || c === '/' || /index\.html$/.test(c)) return 'Página inicial';
+  return c;
+}
+
+
 async function carregarVisitas(){
   const alvo = $('#visitas-conteudo');
   alvo.innerHTML = '<div class="vazio">Carregando...</div>';
   const { data, error } = await sb.from('visitas')
-    .select('criado_em,pais,uf').order('criado_em', { ascending:false }).limit(5000);
+    .select('*').order('criado_em', { ascending:false }).limit(5000);
   if(error || !data){ alvo.innerHTML = '<div class="vazio">Não consegui carregar as visitas.</div>'; return; }
   if(!data.length){
     alvo.innerHTML = '<div class="vazio">Nenhuma visita registrada ainda.<br>' +
@@ -553,6 +570,14 @@ async function carregarVisitas(){
     return Object.entries(m).sort((a,b) => b[1]-a[1]);
   };
   const paises = conta('pais').map(([n,v]) => [ptPais(n), v]), estados = conta('uf');
+  const cidades = conta('cidade');
+  const mapa = (campo, fn) => {
+    const m = {};
+    data.forEach(v => { const x = fn(v[campo]); if(x) m[x] = (m[x]||0) + 1; });
+    return Object.entries(m).sort((a,b) => b[1]-a[1]);
+  };
+  const origens = mapa('referencia', origemDe);
+  const paginas = mapa('caminho', paginaDe);
 
   alvo.innerHTML = `
     <div class="heroi">${num(data.length)}</div>
@@ -568,14 +593,26 @@ async function carregarVisitas(){
       <p class="leg">Últimos 30 dias</p>
       <div id="g-linha"></div>
     </div>
+    <div class="grafico env">
+      <h3>De onde vieram</h3>
+      <p class="leg">O que está trazendo gente para o site</p>
+      <div id="g-origem"></div>
+    </div>
     <div class="duplo">
       <div class="grafico env"><h3>Por país</h3><p class="leg">Mais visitados primeiro</p><div id="g-pais"></div></div>
       <div class="grafico env"><h3>Por estado</h3><p class="leg">Apenas visitas do Brasil trazem estado</p><div id="g-uf"></div></div>
+    </div>
+    <div class="duplo">
+      <div class="grafico env"><h3>Por cidade</h3><p class="leg">As dez cidades com mais acessos</p><div id="g-cidade"></div></div>
+      <div class="grafico env"><h3>Páginas abertas</h3><p class="leg">Por onde entraram no site</p><div id="g-pagina"></div></div>
     </div>`;
 
   desenharLinha($('#g-linha'), Object.entries(porDia));
-  desenharBarras($('#g-pais'), paises.slice(0,6), 'país');
-  desenharBarras($('#g-uf'),   estados.slice(0,6), 'estado');
+  desenharBarras($('#g-origem'), origens.slice(0,8), 'origem', 860);
+  desenharBarras($('#g-pais'),   paises.slice(0,6), 'país');
+  desenharBarras($('#g-uf'),     estados.slice(0,6), 'estado');
+  desenharBarras($('#g-cidade'), cidades.slice(0,10), 'cidade');
+  desenharBarras($('#g-pagina'), paginas.slice(0,6), 'página');
 }
 
 function dica(env){
@@ -627,15 +664,17 @@ function desenharLinha(caixa, pares){
   svg.addEventListener('pointerleave', () => { d.style.opacity = 0; cruz.style.opacity = 0; });
 }
 
-function desenharBarras(caixa, itens, oque){
+function desenharBarras(caixa, itens, oque, W){
+  W = W || 380;
   if(!itens.length){
     caixa.innerHTML = `<div class="vazio" style="padding:30px 10px;font-size:1rem">Nenhum ${oque} registrado ainda.</div>`;
     return;
   }
-  const W=380, alt=18, passo=34, L=0, T=4;
+  const alt=18, passo=34, L=0, T=4;
   const H = T + itens.length*passo;
   const max = Math.max(...itens.map(i=>i[1]));
-  const larg = v => Math.max(3, (W-120) * v/max);
+  const reserva = Math.round(W*0.16)+40;
+  const larg = v => Math.max(3, (W-reserva) * v/max);
   const barras = itens.map(([nome,v],i)=>{
     const y = T + i*passo;
     return `<g>
